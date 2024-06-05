@@ -1,0 +1,25 @@
+1. write the program to print the count of each character in a string using stream?
+
+String val="ShajothaBegum";
+
+Map<Character,Integer> charCount=val.chars().mapToObj(c->(char)c).collect(Collectors.gropingBy(Function.identity,Collectors.counting()));
+
+System.out.println(charCount);
+
+
+2.How to convert a list of objects into a map by considering duplicated keys and store them in sorted order?
+
+Employee emp1=new Employee("test1,1000);
+Employee emp2=new Employee("test2,1000);
+Employee emp3=new Employee("test3,1000);
+Employee emp4=new Employee("test1,1000);
+
+List<Employee> employees=new ArrayList();
+ employees.add(emp1);
+ employees.add(emp2);
+ employees.add(emp3);
+ employees.add(emp4);
+
+Map<String,Double> uniqueEmployee=employees.stream().collect(Collector.toMap(Employee::getName,Employee:getSalary,(existing.replacement)->existing),()->new TreeMap<>(Comparator.natureOrder()));
+
+
